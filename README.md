@@ -6,28 +6,18 @@ This repository contains community-ready configurations for the **Standard Audit
 
 ---
 
-## 📦 Included Files
-
-| Folder | Description |
-|---------|-------------|
-| **DataModel** | Contains the latest plain Microsoft Standard Audit File (SAF-T) data model. |
-| **ModelMapping** | Contains the latest plain Microsoft SAF-T Financial Data Model mapping configuration. |
-| **Format** | Contains the customized Norwegian SAF-T format with English and Norwegian labels to optimize setup performance. |
-
----
-
 ## ⚠️ Version Compatibility
 
 All configurations in this repository must be used in **the same version** to ensure compatibility between the data model, mapping, and format.
 
 Example of a consistent version set:
 - **Data model:** Standard Audit File (SAF-T) *(190)*
-- **Model mapping:** SAF-T Financial data model mapping *(190.146)*
-- **Format:** SAF-T Format (NO)-DFT *(190.179)*
+- **Model mapping:** SAF-T Financial data model mapping *(190.157)*
+- **Format:** SAF-T Format (NO)-DFT *(190.180)*
 
 The **Data model** acts as an **enabler** for the **Format** — meaning:
 - You **must import** `Standard Audit File (SAF-T) (190)` **first**,  
-- and then import `SAF-T Format (NO)-DFT (190.179)`.
+- and then import `SAF-T Format (NO)-DFT (190.180)`.
 
 Version `190` represents the **format version** and must match across all configurations.
 
@@ -62,6 +52,43 @@ Version `190` represents the **format version** and must match across all config
 - Supports the latest Microsoft SAF-T configurations and data model versions.
 
 ---
+## 🔄 Updates / Versions
+
+### SAF-T Format (NO)-DFT – Version 190.180
+
+This repository now includes an updated SAF-T NO Electronic Reporting (ER) format and model mapping provided by Microsoft.
+
+#### New artifacts
+- **Format**: SAF-T Format (NO)-DFT (190.180)
+- **Model mapping**: SAF-T Financial data model mapping (190.157)
+
+#### Key improvements
+- Fix from Microsoft addressing **time-out issues during SAF-T report generation**
+- Optimization in the `<GeneralLedgerEntries>` section to resolve performance bottlenecks
+- Significant performance improvement when opening **Application-specific parameters**, especially **VAT Code Mapping**
+- Improved scalability in environments with many legal entities
+
+#### Background
+Previous versions (e.g. 190.179) could experience long execution times or time-outs when generating SAF-T files with large General Ledger volumes.  
+The updated configuration restructures data handling in the General Ledger section, reducing execution time and improving usability.
+
+#### Recommendation
+Microsoft recommends upgrading to Format **version 190.180** and model mapping **version 190.157** for customers experiencing:
+- Time-outs during SAF-T generation
+- Slow response when opening VAT code mappings
+- Performance issues in multi–legal entity environments
+
+---
+
+## 📦 Included Files
+
+| Folder | Description |
+|---------|-------------|
+| **DataModel** | Contains the latest plain Microsoft Standard Audit File (SAF-T) data model. |
+| **ModelMapping** | Contains the latest plain Microsoft SAF-T Financial Data Model mapping configuration. |
+| **Format** | Contains the customized Norwegian SAF-T format with English and Norwegian labels to optimize setup performance. |
+
+
 
 ## 🆓 License
 This configuration is **open and free** for the Microsoft community to download and use.
